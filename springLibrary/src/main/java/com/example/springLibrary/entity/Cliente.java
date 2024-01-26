@@ -3,6 +3,9 @@ package com.example.springLibrary.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import com.example.springLibrary.entity.Emprestimo;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,5 +23,7 @@ public class Cliente {
     private String email;
     private String telefone;
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Emprestimo> emprestimoList;
 
 }

@@ -4,24 +4,24 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
-public class Livro {
+public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id",unique=true, nullable = false)
     private Long id;
 
-    @Column(nullable = false)
-    private String titulo;
+    private String responsavel;
+    private Date dataDeEmprestimo;
 
-    private String autor;
-    private String isbn;
+    @ManyToOne
+    private Cliente cliente;
 
-    @OneToMany(mappedBy = "livro")
-    private List<Livro> livroList;
+    @ManyToOne
+    private Livro livro;
 }
