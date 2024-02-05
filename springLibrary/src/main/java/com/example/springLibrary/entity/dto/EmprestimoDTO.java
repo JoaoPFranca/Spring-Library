@@ -5,5 +5,5 @@ import com.example.springLibrary.entity.Livro;
 
 import java.util.Date;
 
-public record EmprestimoDTO(String responsavel, Date dataDeEmprestimo, Cliente cliente, Livro livro) {
+public record EmprestimoDTO(String responsavel, Date dataDeEmprestimo, Long clienteId, Long livroId) {
 }

@@ -1,5 +1,8 @@
 package com.example.springLibrary.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +27,8 @@ public class Cliente {
     private String telefone;
 
     @OneToMany(mappedBy = "cliente")
+    @JsonManagedReference
+    @JsonIgnore
     private List<Emprestimo> emprestimoList;
 
 }

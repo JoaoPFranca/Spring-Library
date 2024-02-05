@@ -23,5 +23,5 @@ public class Livro {
     private String isbn;
 
     @OneToMany(mappedBy = "livro")
-    private List<Livro> livroList;
+    private List<Emprestimo> livroList;
 }
